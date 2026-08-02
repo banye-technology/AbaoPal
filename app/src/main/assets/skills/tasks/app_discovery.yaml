@@ -1,0 +1,25 @@
+metadata:
+  id: "system.app_discovery"
+  type: "TASK"
+  name: "应用发现与启动"
+  version: "1.0.0"
+  author: "伴业科技"
+  description: "当当前应用不是目标应用时，负责寻找并启动目标应用"
+  target_apps:
+    - "*"
+    - "system.launcher"
+    - "global.discovery"
+
+instruction: |
+  **当前阶段：寻找并进入目标应用**
+
+  **强制操作规范：**
+  1. **唯一启动方式**：你 **必须且仅能** 使用 `Launch` 工具来打开目标应用。
+  2. **严禁手动查找**：
+     - **严禁** 在桌面上滑动 (Scroll) 寻找图标。
+     - **严禁** 点击 (Tap) 桌面上的应用图标。
+     - 即使你在屏幕上看到了目标应用，也 **必须** 使用 `Launch` 指令。
+
+allowed_tools:
+  - Launch
+  - Home

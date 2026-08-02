@@ -1,0 +1,71 @@
+# Gradle and Android build output
+.gradle/
+**/.gradle/
+**/build/
+out/
+.externalNativeBuild/
+**/.externalNativeBuild/
+.cxx/
+**/.cxx/
+captures/
+
+# Local SDK, signing, and service configuration
+local.properties
+**/local.properties
+secrets.properties
+keystore.properties
+signing.properties
+google-services.json
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+keystore/
+.env
+.env.*
+!.env.example
+
+# IDE and agent-local files
+.idea/
+.vscode/
+.vs/
+.cursor/
+.claude/
+.codex/
+.trae/
+.windsurf/
+*.iml
+*.ipr
+*.iws
+
+# Kotlin, Java, and native caches
+.kotlin/
+**/.kotlin/
+*.kotlin_module
+hs_err_pid*
+
+# Logs, profiles, temporary files, and local memory
+*.log
+*.hprof
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+tmp/
+temp/
+coverage/
+data/memory/
+
+# Generated installable packages
+*.apk
+*.aab
+*.apks
+app/release/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+desktop.ini

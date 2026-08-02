@@ -1,0 +1,118 @@
+metadata:
+  id: "app.qq"
+  type: "APP"
+  name: "QQ (QQ) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对QQ的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.tencent.mobileqq"
+
+user_path_tree:
+  # Tab 1: 消息 (Messages)
+  - id: "tab_messages"
+    description: "底部消息Tab"
+    matcher: { text: "消息" }
+    children:
+      - id: "msg_header"
+        matcher: { id: "header" }
+        children:
+          - id: "btn_search"
+            description: "搜索框"
+            matcher: { text: "搜索" }
+            included_features: ["搜索好友", "搜索群聊", "搜索聊天记录"]
+          - id: "btn_plus"
+            description: "加号"
+            matcher: { desc: "快捷入口" }
+            included_features: ["扫一扫", "发起群聊", "面对面快传"]
+      - id: "msg_list"
+        description: "消息列表"
+        matcher: { id: "recent_chat_list" }
+
+  # Tab 2: 联系人 (Contacts)
+  - id: "tab_contacts"
+    description: "底部联系人Tab"
+    matcher: { text: "联系人" }
+    children:
+      - id: "new_friends"
+        description: "新朋友"
+        matcher: { text: "新朋友" }
+        included_features: ["好友申请", "通讯录好友"]
+      - id: "group_notifications"
+        description: "群通知"
+        matcher: { text: "群通知" }
+        included_features: ["入群申请", "群助手"]
+      - id: "friend_groups"
+        description: "分组/好友/群聊/频道/机器人/设备"
+        matcher: { id: "contact_list" }
+
+  # Tab 3: 动态 (Discover/Moments)
+  - id: "tab_discover"
+    description: "底部动态Tab"
+    matcher: { text: "动态" }
+    children:
+      - id: "search_discover"
+        description: "搜索"
+        matcher: { text: "搜索" }
+      - id: "qzone"
+        description: "好友动态"
+        matcher: { text: "好友动态" }
+        included_features: ["浏览说说", "发表动态"]
+      - id: "zone_activities"
+        description: "空间动态/元梦农场"
+        matcher: { id: "leb_search_entry" }
+        included_features: ["游戏中心", "小程序", "频道"]
+
+  # Tab 4: 侧边栏/我的 (Sidebar/Me) - QQ 通常是左滑侧边栏或点击头像
+  - id: "sidebar_me"
+    description: "个人中心(侧边栏)"
+    matcher: { desc: "头像" }
+    children:
+      - id: "me_profile"
+        description: "头像/个人资料"
+        matcher: { id: "head_layout" }
+        included_features: ["个人资料卡", "账号切换", "在线状态"]
+      - id: "me_functions"
+        description: "功能菜单"
+        matcher: { id: "qm_mask_view" }
+        included_features: ["相册", "收藏", "文件", "钱包", "会员中心", "个性装扮", "免流量"]
+      - id: "btn_settings"
+        description: "设置"
+        matcher: { text: "设置" }
+        included_features: ["账号安全", "消息通知", "通用", "关于QQ", "退出登录"]
+      - id: "btn_night_mode"
+        description: "夜间模式"
+        matcher: { text: "夜间" }
+
+instruction: |
+  **当前阶段：QQ (QQ) 专用模式**
+
+  **操作指南**：
+  1. **消息处理**：
+     - 在消息Tab，使用搜索框查找好友或群聊。
+     - 消息列表包含最近的会话。
+
+  2. **联系人查找**：
+     - 在联系人Tab，可以查看新朋友、群通知和分组好友。
+     - 使用分组列表查找特定好友。
+
+  3. **侧边栏交互**：
+     - 点击左上角头像（或在主界面左滑）可打开侧边栏。
+     - 侧边栏包含个人资料、设置、钱包、文件等功能。
+
+  4. **动态浏览**：
+     - 在动态Tab，可以查看好友动态（空间说说）。
+
+  5. **文本输入**：
+     - **强制前置动作**：在输入任何文字前，**必须先点击输入框**。
+     - **键盘检测**：只有在屏幕截图中明确看到软键盘弹出后，才允许执行 Type 指令。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

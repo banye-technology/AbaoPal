@@ -1,0 +1,35 @@
+metadata:
+  id: "builtin.system_assistant"
+  type: "TASK"
+  name: "系统AI助手交互"
+  version: "1.0.0"
+  author: "System"
+  description: "当标准系统指令(SystemIntent)无法满足需求时，调用手机自带的AI助手（如小艺、小爱、Siri、Bixby）来处理复杂任务。适用场景：IoT智能家居控制（开灯/关空调）、创建待办事项/备忘录、通用问答/知识查询。"
+  target_apps: ["*"]
+
+instruction: |
+  当用户请求的任务无法通过 `SystemIntent` 完成，但属于手机系统助手的擅长领域时（例如：“打开客厅的灯”、“提醒我明天买牛奶”、“现在的汇率是多少”），请按照以下步骤操作：
+
+  1. **识别并启动助手应用**：
+     尝试启动手机自带的语音助手应用（Target Apps 参考）：
+     - 华为/荣耀: `com.huawei.vassistant` (智慧语音)
+     - 小米: `com.miui.voiceassist` (小爱同学)
+     - OPPO: `com.coloros.speechassist` (Breeno语音)
+     - VIVO: `com.vivo.agent` (Jovi语音)
+     - Google: `com.google.android.googlequicksearchbox` (Google Assistant)
+     - 三星: `com.samsung.android.bixby.agent` (Bixby)
+
+  2. **切换至键盘模式**：
+     - 启动应用后，如果默认是语音监听模式，请寻找界面上的“键盘”、“输入”或“键盘图标”按钮并点击。
+     - 通常位于屏幕底部角落。
+
+  3. **输入指令**：
+     - 在输入框中输入用户的原始指令（例如：“添加一个待办事项：买牛奶”）。
+     - 点击发送/确认。
+
+  **适用场景示例：**
+  - "帮我记一下明天要开会" (待办/备忘录) -> SystemIntent 不支持，但助手支持。
+  - "把空调调到26度" (智能家居/IoT) -> 只能通过助手完成。
+  - "讲个笑话" (通用问答)。
+
+  **注意**：如果可以通过 `SystemIntent` (如闹钟、日历) 完成，**绝对优先**使用 `SystemIntent`，因为那个更快且无界面干扰。本 Skill 仅作为补充兜底方案。

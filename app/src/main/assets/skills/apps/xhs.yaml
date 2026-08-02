@@ -1,0 +1,158 @@
+metadata:
+  id: "app.xhs"
+  type: "APP"
+  name: "小红书 (Xiaohongshu) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对小红书的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.xingin.xhs"
+
+user_path_tree:
+  # Tab 1: 首页 (Home)
+  - id: "tab_home"
+    description: "首页"
+    matcher: { text: "首页" }
+    children:
+      - id: "top_nav"
+        description: "顶部导航区"
+        matcher: { id: "tab_layout" }
+        children:
+          - id: "top_tabs"
+            description: "顶部标签"
+            matcher: { id: "tab_text" }
+            included_features: ["关注", "发现", "同城", "长沙"]
+          - id: "btn_search_home"
+            description: "搜索入口"
+            matcher: { id: "search_icon" }
+            included_features: ["搜索笔记", "搜索用户", "搜索商品"]
+      - id: "feed_stream"
+        description: "内容流"
+        matcher: { id: "recycler_view" }
+        included_features: ["浏览笔记", "视频", "直播", "推荐流"]
+
+  # Tab 2: 市集 (Market)
+  - id: "tab_market"
+    description: "市集/购物"
+    matcher: { text: "市集" }
+    children:
+      - id: "market_top"
+        description: "顶部功能"
+        matcher: { id: "market_header" }
+        children:
+          - id: "market_search"
+            description: "搜索商品"
+            matcher: { text: "搜索" }
+            included_features: ["搜索好物", "便携式烟灰缸"]
+          - id: "market_categories"
+            description: "分类栏"
+            matcher: { id: "category_list" }
+            included_features: ["推荐", "穿搭", "运动", "饮食", "生鲜", "潮玩"]
+      - id: "market_quick_access"
+        description: "快捷入口"
+        matcher: { id: "quick_access_layout" }
+        children:
+          - id: "market_icons"
+            description: "功能图标"
+            matcher: { id: "icon_container" }
+            included_features: ["直播广场", "星光夜市", "美妙商店", "超级满减", "我的订单", "购物车", "优惠券"]
+
+  # Tab 3: 发布 (+)
+  - id: "tab_publish"
+    description: "发布按钮"
+    matcher: { desc: "发布" }
+    children:
+      - id: "publish_actions"
+        description: "发布功能"
+        matcher: { id: "publish_menu" }
+        children:
+          - id: "btn_publish_options"
+            description: "发布选项"
+            matcher: { id: "publish_options" }
+            included_features: ["发笔记", "发视频", "拍同款"]
+
+  # Tab 4: 消息 (Messages)
+  - id: "tab_messages"
+    description: "消息"
+    matcher: { text: "消息" }
+    children:
+      - id: "interaction_notifications"
+        description: "互动通知"
+        matcher: { id: "notification_header" }
+        children:
+          - id: "interaction_icons"
+            description: "顶部通知栏"
+            matcher: { id: "icon_layout" }
+            included_features: ["赞和收藏", "新增关注", "评论和@"]
+      - id: "message_list"
+        description: "消息列表"
+        matcher: { id: "chat_list_recycler" }
+        children:
+          - id: "chat_list"
+            description: "会话列表"
+            matcher: { id: "item_root" }
+            included_features: ["私信好友", "群聊消息", "系统消息"]
+
+  # Tab 5: 我 (Me)
+  - id: "tab_me"
+    description: "我"
+    matcher: { text: "我" }
+    children:
+      - id: "sidebar_area"
+        description: "侧边栏菜单"
+        matcher: { desc: "更多" }
+        children:
+          - id: "sidebar_menu"
+            description: "菜单列表"
+            matcher: { id: "menu_drawer" }
+            included_features: ["添加好友", "2025年度报告", "创作中心", "我的草稿", "浏览记录", "我的下载", "订单", "购物车", "钱包", "扫一扫", "设置", "帮助与客服"]
+      - id: "profile_area"
+        description: "个人信息区"
+        matcher: { id: "profile_header" }
+        children:
+          - id: "profile_actions"
+            description: "操作按钮"
+            matcher: { id: "action_buttons" }
+            included_features: ["编辑资料", "分享主页"]
+          - id: "btn_settings_shortcut"
+            description: "设置图标"
+            matcher: { id: "settings_icon" }
+            included_features: ["设置"]
+      - id: "content_area"
+        description: "内容标签页"
+        matcher: { id: "tab_indicator" }
+        children:
+          - id: "user_content_tabs"
+            description: "笔记/收藏"
+            matcher: { id: "tab_text" }
+            included_features: ["笔记", "收藏", "赞过"]
+
+instruction: |
+  **当前阶段：小红书 (Xiaohongshu) 专用模式**
+
+  **操作指南**：
+  1. **侧边栏交互**：
+     - 小红书的“更多”菜单通常位于“我”Tab 的左上角（三条横线图标）。
+     - 点击该图标可展开侧边栏，访问购物车、钱包、设置等功能。
+
+  2. **市集购物**：
+     - 购物相关功能集中在“市集”Tab。
+     - 顶部有详细分类（如穿搭、运动），中间有快捷入口（如我的订单、购物车）。
+
+  3. **消息查看**：
+     - 互动通知（赞、关注、评论）在消息页顶部横向排列。
+     - 聊天列表在下方垂直排列。
+
+  4. **内容浏览**：
+     - 首页默认为“发现”推荐流，支持上下滑动浏览。
+     - 双击图片通常为“点赞”。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

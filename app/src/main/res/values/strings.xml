@@ -1,0 +1,515 @@
+<resources>
+    <string name="app_name">阿宝 Pal</string>
+    <string name="app_title_home">阿宝 Pal</string>
+    <string name="accessibility_service_description">用于自动化手机操作，需要此权限来执行点击、滑动、输入等操作</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">设置</string>
+    <string name="permission_management">权限管理</string>
+    <string name="display_over_other_apps">在其他应用上显示</string>
+    <string name="display_overlay_subtitle">用于显示悬浮球助手</string>
+    <string name="accessibility_service">无障碍服务</string>
+    <string name="accessibility_subtitle">用于执行自动化操作</string>
+    <string name="autostart_permission">自启动权限</string>
+    <string name="autostart_subtitle">防止无障碍服务被系统回收</string>
+    <string name="autostart_hint">设置自启动权限可以避免系统在后台清理时关闭无障碍服务，确保应用持续运行</string>
+    <string name="microphone_permission">麦克风权限</string>
+    <string name="microphone_subtitle">用于语音输入指令</string>
+    <string name="function_settings">功能设置</string>
+    <string name="voice_broadcast">语音播报</string>
+    <string name="voice_broadcast_subtitle">播报任务开始、完成与错误提示</string>
+    <string name="voice_package">语音包</string>
+    <string name="voice_package_system">系统语音包</string>
+    <string name="voice_package_aliyun">阿里云语音包</string>
+    <string name="voice_package_aliyun_voice">音色</string>
+    <string name="voice_package_select">选择音色</string>
+    <string name="voice_package_require_bailian">使用阿里云语音包需要先将AI服务切换为阿里云百炼</string>
+    <string name="voice_package_auto_switched">已自动切换为系统语音包</string>
+    <string name="voice_wakeup">语音唤醒</string>
+    <string name="voice_wakeup_subtitle">使用“%1$s”唤醒助手</string>
+    <string name="model_config_description">请选择执行模型，将自动调用相应的语言模型执行自动化操作。</string>
+    <string name="wake_word">唤醒词</string>
+
+    <string name="wakeword_changed_re_register_voiceprint">唤醒词已修改，请重新注册声纹</string>
+    <string name="wakeword_change_confirm_title">修改唤醒词</string>
+    <string name="wakeword_change_confirm_message">修改唤醒词将导致当前声纹失效，需要重新注册。是否继续？</string>
+
+    <!-- Voiceprint Registration -->
+    <string name="voiceprint_verification">音色验证</string>
+    <string name="voiceprint_verification_subtitle">开启后只有注册的声音才能唤醒助手</string>
+    <string name="voiceprint_registration">音色注册</string>
+    <string name="voiceprint_enrolled">已注册音色</string>
+    <string name="voiceprint_not_enrolled">未注册音色</string>
+    <string name="voiceprint_enroll_hint">注册后只有您的声音可以唤醒助手</string>
+    <string name="voiceprint_enrolled_subtitle">已注册音色，只有您的声音可以唤醒</string>
+    <string name="voiceprint_enroll_title">注册音色</string>
+    <string name="voiceprint_enroll_instruction">请在安静环境下清晰地说出唤醒词3次</string>
+    <string name="voiceprint_recording">正在录制 %1$d/3</string>
+    <string name="voiceprint_processing">正在处理…</string>
+    <string name="voiceprint_success">音色注册成功</string>
+    <string name="voiceprint_failed">音色注册失败，请重试</string>
+    <string name="voiceprint_verification_failed">音色验证失败</string>
+    <string name="voiceprint_delete">删除音色</string>
+    <string name="voiceprint_delete_confirm">确定要删除已注册的音色吗？</string>
+    <string name="voiceprint_start_recording">开始录制</string>
+    <string name="voiceprint_recording_step">第 %1$d 次录制</string>
+    <string name="voiceprint_say_wake_word">请清晰地说出唤醒词</string>
+    <string name="voiceprint_wake_word_label">唤醒词：%1$s</string>
+    <string name="voiceprint_quality_low">录音质量较低，建议重新录制</string>
+    <string name="voiceprint_model_not_ready">音色识别模型未就绪</string>
+    <string name="voiceprint_register_button">注册</string>
+    <string name="voiceprint_delete_button">删除</string>
+
+    <string name="current_wake_word">当前: %1$s</string>
+    <string name="custom_wake_word_dialog_title">自定义唤醒词</string>
+    <string name="custom_wake_word_hint">请输入中文唤醒词（3–6个字）：</string>
+    <string name="custom_wake_word_label">唤醒词</string>
+    <string name="updating_wake_word">正在更新唤醒词…</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="recording_edit_title">编辑录制</string>
+    <string name="live_edit_title">实时编辑</string>
+    <string name="playback">回放</string>
+    <string name="unsaved_label">未保存</string>
+    <string name="unsaved_changes_title">未保存的更改</string>
+    <string name="unsaved_changes_message">您有未保存的更改，确定要放弃吗？</string>
+    <string name="discard">放弃</string>
+    <string name="batch_delete_title">批量删除</string>
+    <string name="batch_delete_message">确定要删除选中的 %1$d 个操作吗？</string>
+    <string name="validation_warning_format">提示: %1$s</string>
+    <string name="no_recorded_actions">暂无录制操作</string>
+    <string name="replace_screenshot">替换截图</string>
+    <string name="upload_screenshot">上传截图</string>
+    <string name="rotate_screenshot">旋转截图</string>
+    <string name="drag_handle">拖拽</string>
+    <string name="screenshot_load_failed">截图加载失败</string>
+    <string name="recording_name_label">按键集名称</string>
+    <string name="recording_name_placeholder">输入按键集名称</string>
+    <string name="recording_description_label">按键集描述</string>
+    <string name="recording_description_placeholder">描述按键集的用途，供Agent智能选择...</string>
+    <string name="recording_description_required">请输入按键集描述</string>
+    <string name="create_instruction_set_title">新建按键集</string>
+    <string name="edit_instruction_set_title">编辑按键集</string>
+    <string name="imported_steps_message">已从录制导入 %1$d 个操作步骤</string>
+    <string name="instruction_set_steps_summary">操作步骤: %1$d 个</string>
+    <string name="import_from_recording">从录制导入</string>
+    <string name="create">创建</string>
+    <string name="delete_instruction_set_title">删除按键集</string>
+    <string name="delete_instruction_set_message">确定要删除按键集「%1$s」吗？此操作不可撤销。</string>
+    <string name="imported_instruction_set_description">从录制导入的按键集</string>
+    <string name="select_recording_title">选择录制</string>
+    <string name="no_recordings_available">暂无可用的录制，请先使用录制功能创建按键录制</string>
+    <string name="device_size_format">设备尺寸: %1$s</string>
+    <string name="recording_info_actions">操作数</string>
+    <string name="recording_action_count_format">%1$d 个</string>
+    <string name="recording_info_duration">总时长</string>
+    <string name="recording_info_size">尺寸</string>
+    <string name="selected_count_format">已选择 %1$d 项</string>
+    <string name="select_all">全选</string>
+    <string name="interval">间隔</string>
+    <string name="batch_delay_title">批量调整延迟</string>
+    <string name="batch_delay_message">为选中的 %1$d 个操作调整延迟时间</string>
+    <string name="batch_delay_uniform">统一设置</string>
+    <string name="batch_delay_scale">按比例</string>
+    <string name="batch_delay_uniform_label">统一延迟时间</string>
+    <string name="batch_delay_scale_label">延迟缩放比例</string>
+    <string name="interval_dialog_title">批量设置间隔</string>
+    <string name="help_interval_tooltip">为选中的操作设置统一的时间间隔。\n\n📍 如果设置后会覆盖后续操作点，后续操作点将自动后移，保持原有间隔。</string>
+    <string name="interval_for_selected_format">为选中的 %1$d 个操作设置统一的时间间隔</string>
+    <string name="interval_ms_label">间隔时间 (毫秒)</string>
+    <string name="ms_suffix">ms</string>
+    <string name="double_interval">设置间隔加倍</string>
+    <string name="times_label">倍数</string>
+    <string name="quick_presets">快捷:</string>
+    <string name="scale_factor_label_format">%1$s ×%2$s</string>
+    <string name="decrease_scale">减少倍数</string>
+    <string name="increase_scale">增加倍数</string>
+    <string name="preview">预览</string>
+    <string name="skill_create_title">新建技能</string>
+    <string name="skill_edit_title">编辑技能</string>
+    <string name="please_complete_required_fields">请完善必填项后再保存</string>
+    <string name="skill_name_label">技能名称 *</string>
+    <string name="skill_name_placeholder">如：微信自动打卡</string>
+    <string name="skill_description_label">技能描述 *</string>
+    <string name="skill_description_placeholder">描述这个技能的作用和场景</string>
+    <string name="target_apps_label">目标应用 *</string>
+    <string name="target_apps_count_format">%1$d/%2$d</string>
+    <string name="app_apply_all_label">应用于所有应用</string>
+    <string name="add_app_label">添加应用</string>
+    <string name="target_apps_hint_select_one">至少选择一个目标应用或选择应用于所有</string>
+    <string name="target_apps_hint_all">该技能将应用于所有应用</string>
+    <string name="target_apps_limit_reached_format">已达到最大应用数量（%1$d 个）</string>
+    <string name="target_apps_limit_format">最多可选择 %1$d 个应用</string>
+    <string name="skill_detail_instruction_label">详细指令 *</string>
+    <string name="instruction_preview_empty">暂无内容预览</string>
+    <string name="skill_instruction_placeholder_long">用自然语言描述执行步骤，支持 Markdown 格式...
+例如：
+1. **打开**微信
+2. 点击`发现`标签
+3. 当打开抖音并进入视频流后，调用按键集@抖音点赞
+4. 输入 @ 可以选择按键集</string>
+    <string name="recording_completed_edit_instruction_set">录制完成，请编辑按键集信息</string>
+    <string name="recording_failed_or_empty">录制失败或没有记录到操作</string>
+    <string name="tool_category_basic">基础操作</string>
+    <string name="tool_category_launch">启动</string>
+    <string name="tool_category_gesture">手势操作</string>
+    <string name="tool_category_system">系统操作</string>
+    <string name="tool_category_input">输入控制</string>
+    <string name="tool_category_assistant">助手功能</string>
+    <string name="tool_category_finish">完成</string>
+    <string name="tool_name_tap">点击</string>
+    <string name="tool_name_wait">等待</string>
+    <string name="tool_name_type">输入</string>
+    <string name="tool_name_swipe">滑动</string>
+    <string name="tool_name_scroll">滚动</string>
+    <string name="tool_name_back">返回</string>
+    <string name="tool_name_home">主页</string>
+    <string name="tool_name_launch">启动应用</string>
+    <string name="tool_name_long_press">长按</string>
+    <string name="tool_name_double_tap">双击</string>
+    <string name="tool_name_tap_and_swipe">点击并滑动</string>
+    <string name="tool_name_zoom_in">放大</string>
+    <string name="tool_name_zoom_out">缩小</string>
+    <string name="tool_name_recents">最近任务</string>
+    <string name="tool_name_notifications">通知栏</string>
+    <string name="tool_name_quick_settings">快捷设置</string>
+    <string name="tool_name_lock_screen">锁屏</string>
+    <string name="tool_name_power_menu">电源菜单</string>
+    <string name="tool_name_split_screen">分屏</string>
+    <string name="tool_name_screenshot">截图</string>
+    <string name="tool_name_enter">回车</string>
+    <string name="tool_name_copy">复制</string>
+    <string name="tool_name_cut">剪切</string>
+    <string name="tool_name_paste">粘贴</string>
+    <string name="tool_name_web_search">网络搜索</string>
+    <string name="tool_name_record_note">记录笔记</string>
+    <string name="tool_name_interact">交互</string>
+    <string name="tool_name_take_over">用户接管</string>
+    <string name="tool_name_replan">重新规划</string>
+    <string name="tool_name_run_instruction_set">执行按键集</string>
+    <string name="tool_name_finish">完成</string>
+    <string name="app_selector_title">选择目标应用</string>
+    <string name="app_selector_search_label">搜索应用</string>
+    <string name="app_selector_search_placeholder">输入应用名称</string>
+    <string name="app_selector_empty_result">未找到匹配的应用</string>
+    <string name="app_selector_confirm_format">确定（%1$d）</string>
+    <string name="custom">自定义…</string>
+    <string name="wake_word_nihao_assistant">你好助手</string>
+    <string name="wake_word_start_task">开始任务</string>
+    <string name="floating_assistant">全局悬浮助手</string>
+    <string name="floating_assistant_subtitle">显示悬浮入口与执行状态</string>
+    <string name="model_config">模型配置</string>
+    <string name="save_api_key">保存 API Key</string>
+    <string name="saved">已保存</string>
+    <string name="profile_default">默认配置</string>
+    <string name="new_profile">新建配置</string>
+    <string name="profile_name_hint">配置名称</string>
+    <string name="base_url_label">Base URL</string>
+    <string name="multimodal_model_hint">执行模型需支持视觉多模态能力（App 会发送截图），请选择支持图像输入的模型</string>
+    <string name="delete_profile">删除配置</string>
+    <string name="model_name">模型名称</string>
+    <string name="enter_api_key">请输入 API Key</string>
+    <string name="enter_model_name">例如: qwen-plus</string>
+    <string name="fetch_models">刷新模型列表</string>
+    <string name="model_list_loading">正在获取模型列表…</string>
+    <string name="model_list_fetch_failed">无法获取模型列表，请手动输入模型名称</string>
+    <string name="model_select_or_input">选择或输入模型名称</string>
+    <string name="api_key_masked_hint">已保存（点击修改）</string>
+    <string name="current_setting_rounds">当前设置: %1$d 轮 (保留最近 %1$d 次交互)</string>
+    <string name="asr_settings">语音识别 (ASR)</string>
+    <string name="enter_dashscope_api_key">请输入 DashScope API Key</string>
+    <string name="enter_asr_url">请输入 ASR 服务地址</string>
+    <string name="enter_asr_api_key">请输入 API Key (可选)</string>
+    <string name="device_id">设备 ID</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="language">语言</string>
+    <string name="language_system">跟随系统</string>
+    <string name="language_zh">简体中文</string>
+    <string name="language_en">English</string>
+    <string name="task_stop_title">停止任务</string>
+    <string name="task_stop_message">确定要停止当前任务吗？</string>
+    <string name="planning_task">规划中…</string>
+    <string name="planning_analysis">规划分析：</string>
+    <string name="execution_plan">执行计划：</string>
+    <string name="initial_analysis_prefix">初步分析: %1$s</string>
+    <string name="step_desc_with_app">%1$s [应用: %2$s]</string>
+    <string name="plan_generated_log">生成规划: %1$d 步</string>
+    <string name="plan_generate_failed">规划生成失败，请稍后重试</string>
+    <string name="plan_generate_error">规划生成异常：%1$s</string>
+
+    <!-- Prompts (Simplified for XML, better handled in code but keys needed for reference if using resources) -->
+    <!-- We will handle prompts in code via a Provider to avoid XML complexity, but we need UI strings for prompt related errors if any -->
+    <string name="error_api_key_not_set">请先在设置中配置 API Key</string>
+    <string name="error_task_completed">任务已完成</string>
+    <string name="floating_ball_size">悬浮球大小</string>
+    <string name="size_small">小</string>
+    <string name="size_medium">中</string>
+    <string name="size_large">大</string>
+    <string name="size_extra_large">超大</string>
+
+    <string name="max_execution_steps">最大执行步数</string>
+    <string name="no_limit">无限制</string>
+    <string name="current_setting_steps">当前设置: %1$d</string>
+    <string name="current_setting_unlimited">当前设置: 无限制</string>
+    <string name="save_failed">保存失败: %1$s</string>
+    <string name="get_failed">获取失败: %1$s</string>
+
+    <!-- TaskListScreen -->
+    <string name="please_enable_accessibility">请先开启无障碍服务权限</string>
+    <string name="please_grant_record_audio">请先授予录音权限</string>
+    <string name="stop_task">停止任务</string>
+    <string name="confirm_stop_task">确定要停止当前任务吗？</string>
+    <string name="stop">停止</string>
+    <string name="task_running">正在执行任务…</string>
+    <string name="listening">正在聆听…</string>
+    <string name="recognizing">正在识别…</string>
+    <string name="input_hint">输入任务，或点击语音输入</string>
+    <string name="voice_input">语音输入</string>
+    <string name="send_task">发送任务</string>
+    <string name="confirm_delete">确认删除</string>
+    <string name="delete">删除</string>
+    <string name="steps_count">%1$d 个步骤</string>
+
+    <!-- TaskDetailScreen -->
+    <string name="back">返回</string>
+    <string name="task_completed">任务完成</string>
+    <string name="instruction">指令</string>
+
+    <!-- MainActivity -->
+    <string name="api_key">API Key</string>
+    <string name="base_url">Base URL</string>
+
+
+    <!-- ChatRuntime -->
+    <string name="accessibility_service_not_enabled">无障碍服务未开启，请在设置中开启</string>
+    <string name="configure_api_key_first">请先在设置中配置 API Key</string>
+    <string name="accessibility_service_not_ready">无障碍服务未就绪，请重试</string>
+    <string name="current_app_prefix">当前应用: %1$s</string>
+    <string name="home_page">主页</string>
+    <string name="task_execution_completed">任务执行完成</string>
+    <string name="task_execution_failed_prefix">任务执行失败: %1$s</string>
+    <string name="recording_control_started">录制控制已启动，请在悬浮窗中控制录制</string>
+    <string name="recording_insert_started">开始插入录制，请完成一个操作</string>
+    <string name="recording_insert_empty">未录制到操作，插入已取消</string>
+    <string name="recording_insert_only_first">仅插入第一个操作，其他操作已忽略</string>
+    <string name="execution_stopped">执行已停止</string>
+    <string name="insert_operation_title">插入操作</string>
+    <string name="insert_recording_confirm_message">确认开始插入录制吗？在截图上面进行录制，录制到第一个操作会自动完成。</string>
+    <string name="do_not_remind_realtime_edit">本次实时编辑不再提醒</string>
+    <string name="screenshot_import_failed">截图导入失败</string>
+    <string name="enter_live_edit_upload_first">请先上传截图再进入实时编辑</string>
+    <string name="recording_service_channel_name">录制服务</string>
+    <string name="recording_service_title">屏幕录制</string>
+    <string name="recording_service_running">录制服务正在运行</string>
+    <string name="recording_accessibility_unavailable">无障碍服务未启用，无法录制操作。请在设置中启用无障碍服务。</string>
+    <string name="recording_no_actions_exit">未录制任何操作，已退出</string>
+    <string name="delete_instruction_set_failed">删除按键集失败</string>
+    <string name="instruction_set_deleted">已删除按键集</string>
+
+    <!-- VoiceController -->
+    <string name="missing_record_audio_permission">缺少录音权限</string>
+    <string name="recording_failed_prefix">录音失败: %1$s</string>
+    <string name="recording_empty">录音为空</string>
+    <string name="dashscope_api_key_not_configured">未配置 DashScope API Key</string>
+    <string name="voice_recognition_interface_not_configured">未配置语音识别接口</string>
+    <string name="voice_recognition_failed">语音识别失败</string>
+    <string name="listening_status">正在听…</string>
+    <string name="recognizing_status">识别中…</string>
+    <string name="i_am_here">我在</string>
+
+    <!-- ChatRuntime (More) -->
+    <string name="screenshot_failed_replay_stopped">无法截取屏幕，回放停止</string>
+    <string name="screenshot_failed">截屏失败，请检查权限或重试</string>
+    <string name="step_execution_failed_format">步骤 %1$d 执行失败: %2$s</string>
+    <string name="replay_error_prefix">回放错误: %1$s</string>
+    <string name="task_replay_completed">任务回放完成</string>
+    <string name="screenshot_failed_android_version_low">无法截取屏幕：需要 Android 11 (API 30) 及以上版本。当前版本：Android %1$s (API %2$d)</string>
+    <string name="screenshot_failed_permission">无法截取屏幕。请确保无障碍服务已开启并授予截屏权限。尝试重启应用。</string>
+    <string name="screenshot_black_secure_flag">屏幕截图为全黑。应用可能禁止截屏（FLAG_SECURE）或正在启动。请稍后重试。\n\n注：模拟器可能无法截屏。</string>
+    <string name="waiting_for_loading_format">检测到黑屏，正在等待加载… (%1$d/%2$d)</string>
+    <string name="api_key_not_set">API Key 未设置</string>
+    <string name="action_executor_not_init">ActionExecutor 未初始化</string>
+    <string name="execution_failed_after_fix">修复后执行失败: %1$s</string>
+    <string name="parse_failed_cannot_fix">解析失败且无法修复: %1$s</string>
+    <string name="execution_exception">执行异常: %1$s</string>
+    <string name="action_summary_sequence">执行连续操作</string>
+    <string name="action_summary_completed">已完成</string>
+    <string name="action_summary_completed_format">已完成: %1$s</string>
+    <string name="action_launch_app">打开应用</string>
+    <string name="action_launch_app_format">打开应用：%1$s</string>
+    <string name="action_tap">点击</string>
+    <string name="action_tap_format">点击：%1$s</string>
+    <string name="action_type">输入</string>
+    <string name="action_type_format">输入：%1$s</string>
+    <string name="action_swipe">滑动</string>
+    <string name="action_back">返回</string>
+    <string name="action_home">回到桌面</string>
+    <string name="action_long_press">长按</string>
+    <string name="action_double_tap">双击</string>
+    <string name="action_wait">等待</string>
+    <string name="action_scroll_format">滚动 (%1$s)</string>
+    <string name="action_execute_format">执行：%1$s</string>
+
+    <!-- VoiceController (More) -->
+    <string name="server_error_prefix">服务器错误: %1$s</string>
+    <string name="request_timeout">请求超时</string>
+    <string name="connection_failed">连接失败</string>
+    <string name="recognition_failed_prefix">识别失败: %1$s</string>
+    <string name="recognition_result_empty">识别结果为空</string>
+
+    <!-- FloatingAssistantService -->
+    <string name="floating_permission_request">请授予悬浮窗权限</string>
+    <string name="floating_service_running">悬浮助手运行中</string>
+    <string name="floating_notification_content">点击打开应用，或在悬浮面板中控制任务</string>
+    <string name="close">关闭</string>
+    <string name="provider_dashscope">阿里云百炼</string>
+    <string name="provider_volcengine">火山引擎</string>
+    <string name="provider_siliconflow">硅基流动</string>
+    <string name="provider_custom">其他</string>
+    <string name="max_context_rounds">最大上下文轮数</string>
+    <string name="voice_recognition_model">语音识别模型</string>
+    <string name="asr_model">ASR 模型</string>
+    <string name="reused_llm_api_key">已复用 LLM 配置的 API Key</string>
+    <string name="asr_url">ASR URL</string>
+    <string name="asr_api_key">ASR API Key</string>
+    <string name="grant_permission">去授权</string>
+    <string name="read_and_agree">我已阅读并同意 </string>
+    <string name="clear">清除</string>
+    <string name="model_paraformer_realtime_v2">Paraformer Realtime v2</string>
+    <string name="model_paraformer_realtime_v1">Paraformer Realtime v1</string>
+    <string name="model_paraformer_realtime_8k_v2">Paraformer Realtime 8k v2</string>
+    <string name="model_paraformer_realtime_8k_v1">Paraformer Realtime 8k v1</string>
+    <string name="api_key_not_configured">请先在设置中配置 API Key</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="copied">已复制</string>
+    <string name="copy">复制</string>
+    <string name="granted">已授权</string>
+    <string name="not_granted">未授权</string>
+    <string name="go_grant">去授权</string>
+    <string name="go_settings">去设置</string>
+    <string name="and_text">" 和 "</string>
+    <string name="unknown">未知</string>
+    <string name="permanent">永久</string>
+
+    <!-- Additional Strings -->
+    <string name="ready">准备就绪</string>
+    <string name="auto_execute_hint">3秒后自动执行…</string>
+    <string name="about_to_execute">即将执行…</string>
+    <string name="no_microphone_support">当前设备没有麦克风，不支持语音输入</string>
+    <string name="input_hint_simple">输入任务指令</string>
+    <string name="continue_text">继续</string>
+    <string name="analyzing">正在分析…</string>
+    <string name="task_completed_default">任务已完成</string>
+    <string name="max_steps_reached">达到最大步骤限制</string>
+    <string name="error_prefix">错误：%1$s</string>
+    <string name="collapse">收起</string>
+    <string name="expand">展开</string>
+
+    <!-- ActionExecutor -->
+    <string name="unsupported_action">不支持的动作: %1$s</string>
+    <string name="failed_to_extract_json">无法从响应中提取有效的 JSON 动作</string>
+    <string name="json_parse_failed">JSON 解析失败: %1$s</string>
+    <string name="invalid_json_object">响应不是有效的 JSON 对象</string>
+    <string name="task_completed_msg">任务完成</string>
+    <string name="empty_action_sequence">动作序列为空</string>
+    <string name="sequence_completed">序列执行完成</string>
+    <string name="search_missing_query">搜索动作缺少 query 参数</string>
+    <string name="app_not_found_local">未找到本地应用: %1$s。请尝试手动在桌面查找。</string>
+    <string name="websearch_missing_query">网络搜索动作缺少 query 参数</string>
+    <string name="web_search_performed">已执行网络搜索: %1$s</string>
+    <string name="web_search_failed">网络搜索失败: %1$s</string>
+    <string name="launch_missing_app">启动动作缺少 app 参数</string>
+    <string name="launched_app">已启动应用: %1$s</string>
+    <string name="app_not_found_manual">未找到应用: %1$s。请尝试在桌面手动查找。</string>
+    <string name="launch_failed">启动应用失败: %1$s</string>
+    <string name="invalid_coordinate">无效的坐标格式</string>
+    <string name="element_not_found">未找到元素: %1$s</string>
+    <string name="tap_missing_param">点击动作缺少 element 或 text 参数</string>
+    <string name="type_missing_text">输入动作缺少 text 参数</string>
+    <string name="no_focused_input">未找到聚焦的输入框</string>
+    <string name="type_success">输入成功</string>
+    <string name="type_failed">输入失败</string>
+    <string name="manual_selection_prompt">请手动选择一个选项以继续任务</string>
+    <string name="user_selected">用户已选择: %1$s</string>
+    <string name="interaction_no_selection">交互完成未做选择</string>
+    <string name="user_assistance_required">需要用户协助</string>
+    <string name="takeover_prompt">请协助完成: %1$s\n完成后点击下方按钮继续</string>
+    <string name="takeover_completed">用户协助已完成</string>
+    <string name="swipe_missing_params">Swipe 操作缺少 start 或 end 参数</string>
+    <string name="swiped_msg">已滑动: (%1$s, %2$s) -> (%3$s, %4$s)</string>
+    <string name="longpress_missing_param">长按动作缺少 element 参数</string>
+    <string name="scrolled_msg">已滚动 %1$s</string>
+    <string name="invalid_scroll_direction">无效的滚动方向: %1$s</string>
+    <string name="opened_recents">已打开最近任务</string>
+    <string name="opened_notifications">已打开通知栏</string>
+    <string name="opened_quick_settings">已打开快捷设置</string>
+    <string name="found_and_launched">找到并启动应用: %1$s</string>
+    <string name="note_recorded">笔记已记录</string>
+    <string name="doubletap_missing_param">双击动作缺少 element 参数</string>
+    <string name="double_tapped_msg">已双击: (%1$s, %2$s)</string>
+    <string name="waited_msg">已等待 %1$dms</string>
+    <string name="locked_screen">已锁屏</string>
+    <string name="opened_power_dialog">已打开电源菜单</string>
+    <string name="toggled_split_screen">已切换分屏</string>
+    <string name="action_summary_update_task">更新任务状态: %1$s</string>
+    <string name="zoomed_in_msg">已放大 (中心: %1$s, %2$s)</string>
+    <string name="zoomed_out_msg">已缩小 (中心: %1$s, %2$s)</string>
+    <string name="long_pressed_msg">已长按: (%1$s, %2$s)</string>
+    <string name="tapped_at_msg">已点击: (%1$s, %2$s)</string>
+
+    <!-- Note related strings -->
+    <string name="note_missing_content">笔记内容为空</string>
+    <string name="note_saved_success">笔记已保存: %1$s</string>
+    <string name="note_no_active_task">未找到当前活跃任务，无法保存笔记</string>
+    <string name="note_save_failed">保存笔记失败: %1$s</string>
+
+    <!-- ScheduledTask -->
+    <string name="create_scheduled_task">新建定时任务</string>
+    <string name="edit_scheduled_task">编辑定时任务</string>
+    <string name="task_prompt">任务指令</string>
+    <string name="enter_task_prompt">请输入任务指令</string>
+    <string name="repeat_type">重复类型</string>
+    <string name="repeat_once">单次</string>
+    <string name="repeat_daily">每天</string>
+    <string name="repeat_weekly">每周</string>
+    <string name="repeat_workdays">工作日</string>
+    <string name="repeat_monthly">每月</string>
+    <string name="save">保存</string>
+    <string name="no_scheduled_tasks">暂无定时任务</string>
+
+    <!-- Missing Strings -->
+    <!-- ActionExecutor -->
+    <string name="tap_and_swiped_msg">已点击并滑动: (%1$s, %2$s) -> (%3$s, %4$s)</string>
+
+    <!-- Scheduled Tasks -->
+    <string name="scheduled_tasks_title">定时任务</string>
+    <string name="execute_now">立即执行</string>
+    <string name="select_date_default_today">选择日期 (默认为今天)</string>
+    <string name="select_repeat_weekdays">选择重复的星期</string>
+    <string name="select_day_of_month">选择每月的日期</string>
+    <string name="day_suffix">日</string>
+
+    <string name="week_mon">周一</string>
+    <string name="week_tue">周二</string>
+    <string name="week_wed">周三</string>
+    <string name="week_thu">周四</string>
+    <string name="week_fri">周五</string>
+    <string name="week_sat">周六</string>
+    <string name="week_sun">周日</string>
+
+    <string name="week_mon_full">星期一</string>
+    <string name="week_tue_full">星期二</string>
+    <string name="week_wed_full">星期三</string>
+    <string name="week_thu_full">星期四</string>
+    <string name="week_fri_full">星期五</string>
+    <string name="week_sat_full">星期六</string>
+    <string name="week_sun_full">星期日</string>
+
+    <string name="repeat_desc_once_with_date">仅一次 (%s)</string>
+    <string name="repeat_desc_weekly">每周 (%s)</string>
+    <string name="repeat_desc_workdays_detail">工作日 (周一至周五)</string>
+    <string name="repeat_desc_monthly">每月 (%1$d日)</string>
+
+    <string name="task_not_found">任务未找到</string>
+</resources>

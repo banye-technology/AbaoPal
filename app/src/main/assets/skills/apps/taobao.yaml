@@ -1,0 +1,182 @@
+metadata:
+  id: "app.taobao"
+  type: "APP"
+  name: "淘宝 (Taobao) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对淘宝的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.taobao.taobao"
+
+user_path_tree:
+  # Tab 1: 首页 (Home)
+  - id: "tab_home"
+    description: "首页"
+    matcher: { text: "首页" }
+    children:
+      - id: "top_search_nav"
+        description: "顶部搜索与导航"
+        matcher: { id: "home_header" }
+        children:
+          - id: "top_search"
+            description: "搜索区"
+            matcher: { id: "search_bar_layout" }
+            included_features: ["扫一扫", "搜索框", "拍照搜索", "会员码"]
+          - id: "top_tabs"
+            description: "顶部标签"
+            matcher: { id: "tab_layout" }
+            included_features: ["关注", "推荐", "闪购", "国补", "年货节", "飞猪", "穿搭"]
+      - id: "function_entries"
+        description: "功能入口区"
+        matcher: { id: "king_kong_layout" }
+        children:
+          - id: "king_kong_area"
+            description: "金刚区"
+            matcher: { id: "icon_grid" }
+            included_features: ["百亿补贴", "淘宝秒杀", "淘宝直播", "天猫超市", "淘宝闪购", "红包签到", "芭芭农场", "领淘金币", "充值中心", "试用领取"]
+      - id: "recommend_feed"
+        description: "推荐流"
+        matcher: { id: "feed_recycler_view" }
+        children:
+          - id: "feed_list"
+            description: "商品流"
+            matcher: { id: "feed_item" }
+            included_features: ["商品卡片", "活动专区"]
+
+  # Tab 2: 视频 (Video)
+  - id: "tab_video"
+    description: "视频"
+    matcher: { text: "视频" }
+    children:
+      - id: "video_top"
+        description: "顶部导航"
+        matcher: { id: "video_header" }
+        children:
+          - id: "video_tabs"
+            description: "视频标签"
+            matcher: { id: "tab_container" }
+            included_features: ["直播", "短剧", "穿搭", "关注", "推荐"]
+      - id: "video_stream"
+        description: "视频流交互"
+        matcher: { id: "video_container" }
+        children:
+          - id: "video_actions"
+            description: "操作按钮"
+            matcher: { id: "interaction_layout" }
+            included_features: ["点赞", "评论", "收藏", "分享", "查看商品"]
+
+  # Tab 3: 消息 (Messages)
+  - id: "tab_messages"
+    description: "消息"
+    matcher: { text: "消息" }
+    children:
+      - id: "msg_top_area"
+        description: "顶部操作"
+        matcher: { id: "msg_header" }
+        children:
+          - id: "msg_header"
+            description: "标题栏"
+            matcher: { id: "title_bar" }
+            included_features: ["清除未读", "搜索消息", "通讯录", "加号"]
+      - id: "msg_content"
+        description: "消息分类与列表"
+        matcher: { id: "msg_list_view" }
+        children:
+          - id: "msg_categories"
+            description: "分类入口"
+            matcher: { id: "category_layout" }
+            included_features: ["交易物流", "活动优惠"]
+          - id: "msg_list"
+            description: "会话列表"
+            matcher: { id: "chat_item" }
+            included_features: ["店铺消息", "系统通知", "客服消息"]
+
+  # Tab 4: 购物车 (Cart)
+  - id: "tab_cart"
+    description: "购物车"
+    matcher: { text: "购物车" }
+    children:
+      - id: "cart_top"
+        description: "顶部管理"
+        matcher: { id: "cart_header" }
+        children:
+          - id: "cart_header"
+            description: "标题操作"
+            matcher: { id: "header_bar" }
+            included_features: ["管理", "搜索", "对比"]
+      - id: "cart_body"
+        description: "列表与操作"
+        matcher: { id: "cart_list_container" }
+        children:
+          - id: "cart_items"
+            description: "商品列表"
+            matcher: { id: "item_layout" }
+            included_features: ["店铺商品", "优惠券", "降价"]
+          - id: "cart_footer"
+            description: "底部结算栏"
+            matcher: { id: "footer_bar" }
+            included_features: ["全选", "结算", "合计"]
+
+  # Tab 5: 我的淘宝 (My Taobao)
+  - id: "tab_me"
+    description: "我的淘宝"
+    matcher: { text: "我的淘宝" }
+    children:
+      - id: "user_info"
+        description: "顶部个人信息"
+        matcher: { id: "profile_header" }
+        children:
+          - id: "user_header"
+            description: "头像与设置"
+            matcher: { id: "header_icons" }
+            included_features: ["头像", "设置", "客服", "地址", "会员中心"]
+          - id: "user_assets"
+            description: "资产信息"
+            matcher: { id: "assets_layout" }
+            included_features: ["红包", "优惠券", "淘金币", "积分", "充值金"]
+      - id: "user_services"
+        description: "订单与服务"
+        matcher: { id: "services_container" }
+        children:
+          - id: "my_orders"
+            description: "我的订单"
+            matcher: { id: "order_layout" }
+            included_features: ["待付款", "待发货", "待收货", "待评价", "退款售后"]
+          - id: "my_tools"
+            description: "我的工具"
+            matcher: { id: "tools_layout" }
+            included_features: ["快递", "收藏", "关注店铺", "足迹"]
+          - id: "more_services"
+            description: "更多服务"
+            matcher: { id: "more_layout" }
+            included_features: ["芭芭农场", "领淘金币", "游戏中心", "试用领取"]
+
+instruction: |
+  **当前阶段：淘宝 (Taobao) 专用模式**
+
+  **操作指南**：
+  1. **商品搜索**：
+     - 在首页顶部使用搜索框，支持文本输入和拍照搜索。
+     - 也可以在购物车顶部进行搜索。
+
+  2. **购物车管理**：
+     - 进入购物车Tab，勾选商品后点击右下角“结算”。
+     - 顶部“管理”按钮可用于删除商品。
+
+  3. **订单查看**：
+     - 在“我的淘宝”Tab，点击“我的订单”区域查看不同状态的订单（待付款、待发货等）。
+     - “快递”入口可直接查看物流进度。
+
+  4. **视频浏览**：
+     - 视频Tab支持上下滑动切换内容。
+     - 点击视频下方的商品链接可直接跳转详情页。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

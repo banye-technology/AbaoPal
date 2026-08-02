@@ -1,0 +1,9 @@
+# Copy this file to local.properties and replace placeholders locally.
+# Never commit local.properties or real credentials.
+sdk.dir=/absolute/path/to/Android/Sdk
+
+# Optional release signing. Leave commented for debug builds.
+# keystore.path=/absolute/path/to/release.keystore
+# keystore.password=replace-with-local-secret
+# key.alias=replace-with-local-alias
+# key.password=replace-with-local-secret

@@ -1,0 +1,80 @@
+metadata:
+  id: "builtin.system_intents"
+  type: "TASK"
+  name: "系统快捷指令"
+  version: "1.0.0"
+  author: "System"
+  description: "快速执行系统级操作，无需点击 UI。支持：闹钟、倒计时、日历日程、拨打电话、发送短信、打开网页、地图导航、发送邮件、应用市场搜索、系统设置、手电筒开关、媒体音量控制。"
+  target_apps: ["*"]
+
+instruction: |
+  当用户请求以下类型的任务时，**必须**优先使用 `SystemIntent` 工具，而不要尝试通过点击屏幕来操作应用 UI。
+  这不仅速度更快，而且能直接调用系统原生界面。
+
+  **支持的指令类型 (action)：**
+  1. **闹钟 (set_alarm)**
+     - 参数：`hour` (0-23), `minute` (0-59), `message` (备注), `skip_ui` (true/false, 默认true直接设定)
+  2. **倒计时 (set_timer)**
+     - 参数：`seconds` (秒数), `message` (备注), `skip_ui` (true/false)
+  3. **日历日程 (insert_event)**
+     - 参数：`title` (标题), `description` (描述), `location` (地点), `begin_time` (开始时间戳ms), `end_time` (结束时间戳ms)
+  4. **拨打电话 (dial)**
+     - 参数：`number` (电话号码)
+     - 说明：会跳转到拨号盘并填好号码，需用户点击拨出（安全机制）。
+  5. **发送短信 (send_sms)**
+     - 参数：`number` (电话号码), `message` (短信内容)
+     - 说明：跳转到短信编辑页。
+  6. **打开网页 (view_url)**
+     - 参数：`url` (网址)
+     - 说明：使用默认浏览器打开。
+  7. **地图导航 (navigate)**
+     - 参数：`query` (目的地地址或坐标)
+     - 说明：直接调起地图应用进行导航。
+  8. **发送邮件 (send_email)**
+     - 参数：`email` (收件人), `subject` (主题), `body` (正文)
+     - 说明：跳转到邮件客户端草稿箱。
+  9. **打开应用市场 (open_market)**
+     - 参数：`package_name` (包名) 或 `query` (搜索词)
+     - 说明：打开 Google Play 或系统应用商店。
+  10. **系统设置 (open_settings)**
+     - 参数：`page` (可选值: wifi, bluetooth, display, sound, date, language, input, app_details, accessibility, developer)
+     - 说明：直接跳转到具体的设置页面。
+  11. **手电筒 (torch)**
+     - 参数：`enable` (true/false)
+     - 说明：开关手电筒（闪光灯）。
+  12. **媒体控制 (media_control)**
+     - 参数：`command` (play_pause, next, previous, volume_up, volume_down, mute, unmute)
+     - 说明：控制音乐播放或系统音量。
+
+  **使用示例：**
+  - 用户："明天早上8点叫我起床"
+    `{"action_type": "SystemIntent", "action": "set_alarm", "hour": 8, "minute": 0, "message": "起床"}`
+
+  - 用户："导航去天安门"
+    `{"action_type": "SystemIntent", "action": "navigate", "query": "天安门"}`
+
+  - 用户："给老板发邮件请假"
+    `{"action_type": "SystemIntent", "action": "send_email", "email": "recipient@example.com", "subject": "请假", "body": "..."}`
+
+  - 用户："把音量调大点"
+    `{"action_type": "SystemIntent", "action": "media_control", "command": "volume_up"}`
+
+  - 用户："打开手电筒"
+    `{"action_type": "SystemIntent", "action": "torch", "enable": true}`
+
+  - 用户："查看蓝牙设置"
+    `{"action_type": "SystemIntent", "action": "open_settings", "page": "bluetooth"}`
+
+  - 用户："倒计时5分钟煮面"
+    `{"action_type": "SystemIntent", "action": "set_timer", "seconds": 300, "message": "煮面"}`
+
+  - 用户："给10086打电话"
+    `{"action_type": "SystemIntent", "action": "dial", "number": "10086"}`
+
+  - 用户："发短信给老妈说我不回家吃饭了"
+    `{"action_type": "SystemIntent", "action": "send_sms", "number": "妈妈的电话号码(需从上下文获取)", "message": "妈，我不回家吃饭了"}`
+
+  - 用户："打开百度"
+    `{"action_type": "SystemIntent", "action": "view_url", "url": "baidu.com"}`
+
+allowed_tools: ["SystemIntent"]

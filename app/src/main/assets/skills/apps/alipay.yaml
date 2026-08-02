@@ -1,0 +1,164 @@
+metadata:
+  id: "app.alipay"
+  type: "APP"
+  name: "支付宝 (Alipay) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对支付宝的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.eg.android.AlipayGphone"
+
+user_path_tree:
+  # Tab 1: 首页 (Home)
+  - id: "tab_home"
+    description: "首页"
+    matcher: { text: "首页" }
+    children:
+      - id: "home_top_area"
+        description: "顶部功能区"
+        matcher: { id: "home_header" }
+        children:
+          - id: "top_actions"
+            description: "顶部快捷"
+            matcher: { id: "top_layout" }
+            included_features: ["扫一扫", "收付款", "出行", "卡包", "搜索", "公积金查询"]
+      - id: "home_apps"
+        description: "应用中心"
+        matcher: { id: "app_grid" }
+        children:
+          - id: "app_grid"
+            description: "金刚区"
+            matcher: { id: "grid_view" }
+            included_features: ["市民中心", "信用卡还款", "手机充值", "余额宝", "蚂蚁保", "生活缴费", "支付宝红包", "更多"]
+      - id: "home_feed"
+        description: "智能卡片与推荐"
+        matcher: { id: "card_container" }
+        children:
+          - id: "smart_cards"
+            description: "卡片流"
+            matcher: { id: "card_list" }
+            included_features: ["最近消息", "快递信息", "为你推荐", "天天秒杀"]
+
+  # Tab 2: 理财 (Finance)
+  - id: "tab_finance"
+    description: "理财"
+    matcher: { text: "理财" }
+    children:
+      - id: "finance_overview"
+        description: "资产概览"
+        matcher: { id: "asset_header" }
+        children:
+          - id: "asset_overview"
+            description: "总资产信息"
+            matcher: { id: "total_asset" }
+            included_features: ["总资产", "昨日收益"]
+      - id: "finance_services"
+        description: "理财服务"
+        matcher: { id: "finance_grid" }
+        children:
+          - id: "finance_grid"
+            description: "理财宫格"
+            matcher: { id: "service_grid" }
+            included_features: ["余额宝", "稳健理财", "基金", "黄金", "股票", "定期", "养老金"]
+
+  # Tab 3: 视频 (Video)
+  - id: "tab_video"
+    description: "视频"
+    matcher: { text: "视频" }
+    children:
+      - id: "video_top"
+        description: "顶部导航"
+        matcher: { id: "video_header" }
+        children:
+          - id: "video_tabs"
+            description: "视频标签"
+            matcher: { id: "tab_layout" }
+            included_features: ["关注", "财经", "直播", "发现", "短剧"]
+      - id: "video_content"
+        description: "视频流"
+        matcher: { id: "video_container" }
+        children:
+          - id: "video_stream"
+            description: "互动区域"
+            matcher: { id: "interaction_area" }
+            included_features: ["点赞", "评论", "收藏", "红包任务", "分享"]
+
+  # Tab 4: 消息 (Messages)
+  - id: "tab_messages"
+    description: "消息"
+    matcher: { text: "消息" }
+    children:
+      - id: "msg_top_bar"
+        description: "顶部操作"
+        matcher: { id: "msg_header" }
+        children:
+          - id: "msg_header"
+            description: "顶部功能"
+            matcher: { id: "title_bar" }
+            included_features: ["搜索好友", "通讯录", "发起群聊"]
+      - id: "msg_list_area"
+        description: "消息列表"
+        matcher: { id: "msg_list" }
+        children:
+          - id: "msg_list"
+            description: "会话列表"
+            matcher: { id: "list_item" }
+            included_features: ["消息盒子", "支付助手", "互动消息", "服务提醒", "生活号", "芝麻企业助手"]
+
+  # Tab 5: 我的 (Me)
+  - id: "tab_me"
+    description: "我的"
+    matcher: { text: "我的" }
+    children:
+      - id: "me_header_area"
+        description: "头部信息"
+        matcher: { id: "header_layout" }
+        children:
+          - id: "user_header"
+            description: "用户概览"
+            matcher: { id: "user_info" }
+            included_features: ["个人主页", "设置", "客服", "支付宝会员", "商家服务"]
+      - id: "me_assets"
+        description: "资产管理"
+        matcher: { id: "asset_card" }
+        children:
+          - id: "my_assets"
+            description: "资产列表"
+            matcher: { id: "asset_list" }
+            included_features: ["账单", "总资产", "余额", "余额宝", "花呗", "银行卡", "芝麻信用", "网商贷"]
+      - id: "me_life"
+        description: "民生保障"
+        matcher: { id: "life_card" }
+        children:
+          - id: "life_services"
+            description: "社保公积金"
+            matcher: { id: "service_list" }
+            included_features: ["医保", "社保", "公积金", "就业"]
+
+instruction: |
+  **当前阶段：支付宝 (Alipay) 专用模式**
+
+  **操作指南**：
+  1. **快捷支付与扫码**：
+     - 首页顶部最显眼的位置提供了“扫一扫”和“收付款”入口，这是最高频的功能。
+     - “出行”卡片可快速打开乘车码。
+
+  2. **资产查询**：
+     - 简单的资产概览可在“我的”Tab 中查看（余额、花呗、银行卡）。
+     - 详细的理财收益和基金股票信息请进入“理财”Tab。
+
+  3. **生活缴费与服务**：
+     - 首页“应用中心”包含水电煤缴费（生活缴费）、手机充值和市民中心（公积金/社保查询）。
+
+  4. **账单查看**：
+     - 进入“我的”Tab，点击“账单”可查看所有收支明细。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

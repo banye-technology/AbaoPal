@@ -1,0 +1,172 @@
+metadata:
+  id: "app.douyin"
+  type: "APP"
+  name: "抖音 (Douyin) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对抖音的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.ss.android.ugc.aweme"
+
+user_path_tree:
+  # Tab 1: 首页 (Home)
+  - id: "tab_home"
+    description: "首页"
+    matcher: { text: "首页" }
+    children:
+      - id: "home_top_area"
+        description: "顶部导航"
+        matcher: { id: "home_header" }
+        children:
+          - id: "home_tabs"
+            description: "顶部标签"
+            matcher: { id: "tab_layout" }
+            included_features: ["经验", "关注", "商城", "推荐"]
+          - id: "home_search"
+            description: "搜索入口"
+            matcher: { id: "search_icon" }
+            included_features: ["搜索视频", "搜索用户", "搜索同款"]
+      - id: "video_feed"
+        description: "视频流交互"
+        matcher: { id: "view_pager" }
+        children:
+          - id: "video_interaction"
+            description: "右侧按钮"
+            matcher: { id: "interaction_layout" }
+            included_features: ["点赞", "评论", "收藏", "分享", "作者头像"]
+
+  # Tab 2: 朋友 (Friends)
+  - id: "tab_friends"
+    description: "朋友"
+    matcher: { text: "朋友" }
+    children:
+      - id: "friend_top_area"
+        description: "顶部操作"
+        matcher: { id: "friend_header" }
+        children:
+          - id: "friend_header"
+            description: "操作按钮"
+            matcher: { id: "header_icons" }
+            included_features: ["添加好友", "发日常"]
+      - id: "friend_feed_area"
+        description: "朋友动态"
+        matcher: { id: "friend_recycler" }
+        children:
+          - id: "friend_feed"
+            description: "内容流"
+            matcher: { id: "feed_item" }
+            included_features: ["朋友视频", "图文", "互相关注"]
+
+  # Tab 3: 发布 (+)
+  - id: "tab_publish"
+    description: "发布"
+    matcher: { desc: "拍摄" }
+    children:
+      - id: "publish_interface"
+        description: "创作入口"
+        matcher: { id: "record_layout" }
+        children:
+          - id: "publish_btn"
+            description: "加号"
+            matcher: { id: "record_button" }
+            included_features: ["拍摄", "上传", "开直播"]
+
+  # Tab 4: 消息 (Messages)
+  - id: "tab_messages"
+    description: "消息"
+    matcher: { text: "消息" }
+    children:
+      - id: "msg_top_bar"
+        description: "顶部栏"
+        matcher: { id: "msg_header" }
+        children:
+          - id: "msg_header"
+            description: "顶部功能"
+            matcher: { id: "header_actions" }
+            included_features: ["喊话", "搜索", "添加联系人", "发日常"]
+      - id: "msg_list_area"
+        description: "消息列表"
+        matcher: { id: "msg_list" }
+        children:
+          - id: "msg_categories"
+            description: "分类"
+            matcher: { id: "msg_category_box" }
+            included_features: ["互动消息", "购物消息", "粉丝群"]
+          - id: "chat_list"
+            description: "会话"
+            matcher: { id: "chat_item" }
+            included_features: ["私信好友", "系统通知", "抖音小助手"]
+
+  # Tab 5: 我 (Me)
+  - id: "tab_me"
+    description: "我"
+    matcher: { text: "我" }
+    children:
+      - id: "me_top_area"
+        description: "顶部功能区"
+        matcher: { id: "me_header" }
+        children:
+          - id: "me_header_actions"
+            description: "顶部按钮"
+            matcher: { id: "header_icons" }
+            included_features: ["添加朋友", "访客记录", "搜索", "侧边栏菜单"]
+          - id: "user_info"
+            description: "个人资料"
+            matcher: { id: "user_info_layout" }
+            included_features: ["编辑主页", "获赞", "关注", "粉丝", "互关"]
+      - id: "me_features"
+        description: "功能快捷入口"
+        matcher: { id: "feature_scroll" }
+        children:
+          - id: "feature_grid"
+            description: "功能列表"
+            matcher: { id: "feature_item" }
+            included_features: ["我的订单", "我的预约", "观看历史", "我的游戏", "全部功能"]
+      - id: "me_content"
+        description: "内容标签页"
+        matcher: { id: "pager_tab" }
+        children:
+          - id: "content_tabs"
+            description: "作品分类"
+            matcher: { id: "tab_text" }
+            included_features: ["作品", "推荐", "收藏", "喜欢", "私密作品"]
+      - id: "sidebar_overlay"
+        description: "侧边栏"
+        matcher: { id: "drawer_layout" }
+        children:
+          - id: "sidebar_settings"
+            description: "菜单选项"
+            matcher: { id: "menu_list" }
+            included_features: ["设置", "扫一扫", "我的钱包", "创作者中心", "我的客服", "切换账号", "未成年人模式", "清理缓存"]
+
+instruction: |
+  **当前阶段：抖音 (Douyin) 专用模式**
+
+  **操作指南**：
+  1. **视频浏览**：
+     - 首页视频流支持**上下滑动**切换内容。
+     - **点赞**：双击屏幕中央或点击右侧心形图标。
+     - **评论**：点击右侧气泡图标打开评论区。
+
+  2. **侧边栏菜单**：
+     - 必须先进入“我”Tab。
+     - 点击右上角的“三条横线”图标打开侧边栏。
+     - 侧边栏包含设置、钱包、客服等重要功能。
+
+  3. **消息查看**：
+     - 消息Tab顶部显示互动点赞、新增关注等通知。
+     - 下方为私信列表。
+
+  4. **搜索功能**：
+     - 首页右上角和“我”Tab 顶部均有搜索入口。
+     - 支持搜索视频、用户、商品和音乐。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

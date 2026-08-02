@@ -1,0 +1,273 @@
+metadata:
+  id: "app.meituan"
+  type: "APP"
+  name: "美团 (Meituan) 专用技能"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "针对美团的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.sankuai.meituan"
+
+user_path_tree:
+  # 底部导航栏 - 首页 Tab
+  - id: "tab_home"
+    description: "首页推荐Tab"
+    matcher: { text: "推荐" }
+    children:
+      # Layer 2: 顶部功能区
+      - id: "home_header"
+        description: "首页顶部区域"
+        matcher: { id: "home_header_container" }
+        children:
+          - id: "btn_search"
+            description: "搜索框"
+            matcher: { text: "搜索" }
+            included_features:
+              - "搜索商家"
+              - "搜索商品"
+              - "搜索团购"
+              - "搜索外卖"
+          - id: "btn_scan"
+            description: "扫一扫"
+            matcher: { desc: "扫一扫" }
+
+      # Layer 2: 金刚区 (核心频道)
+      - id: "home_channels"
+        description: "核心频道服务区"
+        matcher: { id: "king_kong_area" }
+        children:
+          - id: "channel_waimai"
+            description: "外卖频道"
+            matcher: { text: "外卖" }
+            included_features:
+              - "点外卖"
+              - "下午茶"
+              - "夜宵"
+              - "附近商家"
+          - id: "channel_food"
+            description: "美食频道"
+            matcher: { text: "美食" }
+            included_features:
+              - "特价团购"
+              - "餐厅推荐"
+              - "排队取号"
+          - id: "channel_hotel"
+            description: "酒店民宿"
+            matcher: { text: "酒店民宿" }
+            included_features:
+              - "预订酒店"
+              - "民宿客栈"
+              - "钟点房"
+          - id: "channel_supermarket"
+            description: "小象超市"
+            matcher: { text: "小象超市" }
+            included_features:
+              - "生鲜买菜"
+              - "日用百货"
+              - "超市便利"
+          - id: "channel_medicine"
+            description: "看病买药"
+            matcher: { text: "看病买药" }
+            included_features:
+              - "在线问诊"
+              - "送药上门"
+          - id: "channel_flash_sale"
+            description: "闪购"
+            matcher: { text: "闪购" }
+            included_features:
+              - "数码家电"
+              - "美妆个护"
+              - "母婴用品"
+          - id: "channel_taxi"
+            description: "跑腿打车"
+            matcher: { text: "跑腿" }
+            included_features:
+              - "同城帮买"
+              - "同城帮送"
+          - id: "channel_leisure"
+            description: "休闲玩乐"
+            matcher: { text: "休闲玩乐" }
+            included_features:
+              - "KTV"
+              - "洗浴汗蒸"
+              - "足疗按摩"
+          - id: "channel_movie"
+            description: "电影演出"
+            matcher: { text: "电影演出" }
+            included_features:
+              - "电影票"
+              - "演出赛事"
+          - id: "more_services"
+            description: "更多服务"
+            matcher: { text: "更多服务" }
+
+  # 底部导航栏 - 消息 Tab
+  - id: "tab_messages"
+    description: "底部消息Tab"
+    matcher: { text: "消息" }
+    children:
+      # Layer 2: 消息分类区
+      - id: "msg_group_system"
+        description: "系统通知"
+        matcher: { id: "system_msg_group" }
+        children:
+          - id: "msg_order_dynamic"
+            description: "订单动态"
+            matcher: { text: "订单动态" }
+            included_features:
+              - "外卖配送进度"
+              - "订单状态更新"
+          - id: "msg_service_notify"
+            description: "服务提醒"
+            matcher: { text: "服务提醒" }
+            included_features:
+              - "会员权益变动"
+              - "优惠活动提醒"
+
+      # Layer 2: 聊天列表区
+      - id: "msg_group_chat"
+        description: "聊天列表"
+        matcher: { id: "chat_list" }
+        children:
+          - id: "chat_item"
+            description: "具体聊天窗口"
+            matcher: { id: "chat_item_view" }
+            included_features:
+              - "联系商家"
+              - "联系骑手"
+
+  # 底部导航栏 - 购物车 Tab
+  - id: "tab_cart"
+    description: "底部购物车Tab"
+    matcher: { text: "购物车" }
+    children:
+      # Layer 2: 购物车顶部
+      - id: "cart_header"
+        description: "购物车顶部"
+        matcher: { text: "购物车" }
+        children:
+          - id: "btn_cart_manage"
+            description: "管理商品"
+            matcher: { text: "管理" }
+            included_features:
+              - "删除商品"
+              - "移入收藏"
+      # Layer 2: 底部操作栏
+      - id: "cart_actions"
+        description: "购物车操作"
+        matcher: { id: "bottom_bar" }
+        children:
+          - id: "btn_checkout"
+            description: "去结算"
+            matcher: { text: "结算" }
+            included_features:
+              - "提交订单"
+              - "支付"
+
+  # 底部导航栏 - 我的 Tab
+  - id: "tab_me"
+    description: "底部我的Tab"
+    matcher: { text: "我的" }
+    children:
+      # Layer 2: 顶部个人设置区
+      - id: "me_header"
+        description: "顶部个人信息与设置"
+        matcher: { id: "header_area" }
+        children:
+          - id: "me_settings"
+            description: "设置"
+            matcher: { text: "设置" }
+            included_features:
+              - "个人信息"
+              - "账号与安全"
+              - "支付设置"
+              - "通用设置"
+              - "退出登录"
+          - id: "me_cs"
+            description: "客服"
+            matcher: { text: "客服" }
+            included_features:
+              - "在线客服"
+              - "常见问题"
+
+      # Layer 2: 订单中心
+      - id: "me_orders_panel"
+        description: "订单中心"
+        matcher: { text: "我的订单" }
+        children:
+          - id: "btn_all_orders"
+            description: "全部订单"
+            matcher: { text: "全部订单" }
+            included_features:
+              - "外卖订单"
+              - "团购订单"
+              - "酒店订单"
+              - "评价订单"
+              - "再来一单"
+          - id: "btn_wait_receive"
+            description: "待收货/使用"
+            matcher: { text: "待收货/使用" }
+          - id: "btn_refund"
+            description: "退款/售后"
+            matcher: { text: "退款/售后" }
+
+      # Layer 2: 常用功能面板
+      - id: "me_functions_panel"
+        description: "常用功能面板"
+        matcher: { id: "function_panel" }
+        children:
+          - id: "me_wallet"
+            description: "我的钱包"
+            matcher: { text: "钱包" }
+            included_features:
+              - "余额查询"
+              - "银行卡管理"
+              - "美团月付"
+              - "支付分"
+          - id: "me_favorites"
+            description: "收藏"
+            matcher: { text: "收藏" }
+            included_features:
+              - "收藏的店铺"
+              - "收藏的商品"
+              - "收藏的内容"
+          - id: "me_history"
+            description: "浏览记录"
+            matcher: { text: "浏览记录" }
+            included_features:
+              - "历史浏览店铺"
+              - "历史浏览商品"
+          - id: "me_coupons"
+            description: "红包卡券"
+            matcher: { text: "红包卡券" }
+            included_features:
+              - "我的红包"
+              - "商家代金券"
+
+instruction: |
+  **当前阶段：美团 (Meituan) 专用模式**
+
+  **操作指南**：
+  1. **搜索与浏览**：
+     - 在首页顶部使用“搜索”功能查找商家或商品。
+     - 在“首页”通过金刚区图标（如外卖、美食）快速进入特定频道。
+
+  2. **消息与通知**：
+     - 在“消息”Tab查看订单配送进度（订单动态）和服务提醒。
+
+  3. **购物车与结算**：
+     - 在“购物车”Tab管理已选商品并进行结算。
+
+  4. **个人中心**：
+     - 在“我的”Tab查看全部订单、处理售后。
+     - 访问钱包、收藏和浏览记录。
+     - 通过右上角“设置”进行账号管理。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait

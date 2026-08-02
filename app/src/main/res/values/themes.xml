@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ScreenPalAndroid" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="Theme.ScreenPalAndroid.V2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/v2_window_background</item>
+    </style>
+</resources>

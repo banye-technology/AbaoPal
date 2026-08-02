@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="floating_step_start">#374151</color>
+    <color name="floating_step_end">#1F2937</color>
+    <color name="floating_step_stroke">#4B5563</color>
+    <color name="floating_step_title">#FFFFFF</color>
+    <color name="floating_step_text">#D1D5DB</color>
+
+    <color name="bubble_background">#1F2937</color>
+    <color name="bubble_stroke">#374151</color>
+    <color name="panel_background">#1C1B1F</color>
+    <color name="v2_window_background">#0E1723</color>
+</resources>

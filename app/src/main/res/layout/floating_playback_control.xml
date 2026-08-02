@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/recording_control_bg"
+        android:padding="12dp"
+        android:gravity="center">
+
+        <!-- 准备状态布局 -->
+        <LinearLayout
+            android:id="@+id/layoutReady"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvReadyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播放准备"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvReadyHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请先切换到目标应用"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnStartPlayback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="开始播放"
+                    android:textSize="12sp"
+                    android:minWidth="72dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnCancelReady"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="取消"
+                    android:textSize="12sp"
+                    android:minWidth="60dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="#E57373" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 播放中状态布局 -->
+        <LinearLayout
+            android:id="@+id/layoutPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvPlayingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="播放中"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnPauseResume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="暂停"
+                    android:textSize="12sp"
+                    android:minWidth="60dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnStopPlayback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="终止"
+                    android:textSize="12sp"
+                    android:minWidth="60dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:backgroundTint="#E57373" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/playbackHandle"
+        android:layout_width="24dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end|center_vertical"
+        android:background="@drawable/recording_control_bg"
+        android:gravity="center"
+        android:text=">"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+</FrameLayout>

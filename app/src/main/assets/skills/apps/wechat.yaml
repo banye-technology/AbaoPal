@@ -1,0 +1,215 @@
+metadata:
+  id: "app.wechat"
+  type: "APP"
+  name: "微信 (WeChat) 专用技能"
+  version: "1.3.0"
+  author: "伴业科技"
+  description: "针对微信的特定交互优化，包含用户路径树定义"
+  target_apps:
+    - "com.tencent.mm"
+
+# 用户路径树：模拟用户操作习惯
+user_path_tree:
+  # 顶部通用功能区 (Global Actions)
+  - id: "btn_search"
+    description: "搜索按钮"
+    matcher: { desc: "搜索", id: "actionbar_icon" }
+    included_features:
+      - "联系人"
+      - "群聊"
+      - "小程序"
+      - "公众号"
+      - "聊天记录"
+
+  - id: "btn_plus"
+    description: "更多功能(加号)"
+    matcher: { desc: "更多", id: "actionbar_icon" }
+    children:
+      # 加号展开的菜单
+      - id: "menu_group_chat"
+        description: "发起群聊"
+        matcher: { text: "发起群聊" }
+      - id: "menu_add_friend"
+        description: "添加朋友"
+        matcher: { text: "添加朋友" }
+      - id: "menu_scan"
+        description: "扫一扫"
+        matcher: { text: "扫一扫" }
+      - id: "menu_money"
+        description: "收付款"
+        matcher: { text: "收付款" }
+
+  # 底部导航栏 - 微信 Tab
+  - id: "tab_wechat"
+    description: "底部微信Tab"
+    matcher: { text: "微信", id: "icon_tv" }
+    children:
+      # 列表区
+      - id: "chat_list"
+        description: "聊天列表"
+        matcher: { id: "chat_list_view" }
+
+  # 底部导航栏 - 通讯录 Tab
+  - id: "tab_contacts"
+    description: "底部通讯录Tab"
+    matcher: { text: "通讯录" }
+    children:
+      - id: "new_friends"
+        description: "新的朋友"
+        matcher: { text: "新的朋友" }
+      - id: "group_chats"
+        description: "群聊"
+        matcher: { text: "群聊" }
+      - id: "tags"
+        description: "标签"
+        matcher: { text: "标签" }
+      - id: "official_accounts"
+        description: "公众号"
+        matcher: { text: "公众号" }
+      - id: "service_accounts"
+        description: "服务号"
+        matcher: { text: "服务号" }
+      - id: "enterprise_contacts"
+        description: "企业微信联系人"
+        matcher: { text: "企业微信联系人" }
+      - id: "contacts"
+        description: "微信联系人列表（首字母排序）"
+        matcher: { text: "微信联系人列表" }
+
+  # 底部导航栏 - 发现 Tab
+  - id: "tab_discover"
+    description: "底部发现Tab"
+    matcher: { text: "发现" }
+    children:
+      - id: "moments"
+        description: "朋友圈"
+        matcher: { text: "朋友圈" }
+      - id: "channels"
+        description: "视频号"
+        matcher: { text: "视频号" }
+      - id: "live_stream"
+        description: "直播"
+        matcher: { text: "直播" }
+      - id: "scan_discover"
+        description: "扫一扫"
+        matcher: { text: "扫一扫" }
+      - id: "listen"
+        description: "听一听"
+        matcher: { text: "听一听" }
+      - id: "look"
+        description: "看一看"
+        matcher: { text: "看一看" }
+      - id: "search_discover"
+        description: "搜一搜"
+        matcher: { text: "搜一搜" }
+      - id: "nearby"
+        description: "附近"
+        matcher: { text: "附近" }
+      - id: "games"
+        description: "游戏"
+        matcher: { text: "游戏" }
+      - id: "mini_programs"
+        description: "小程序"
+        matcher: { text: "小程序" }
+
+  # 底部导航栏 - 我 Tab
+  - id: "tab_me"
+    description: "底部我Tab"
+    matcher: { text: "我" }
+    children:
+      - id: "me_profile"
+        description: "个人信息"
+        matcher: { desc: "头像" } # 头像通常具有content-desc
+        included_features:
+          - "头像"
+          - "名字"
+          - "性别"
+          - "地区"
+          - "手机号"
+          - "微信号"
+          - "我的二维码"
+          - "拍一拍"
+          - "签名"
+          - "来电铃声"
+          - "我的地址"
+          - "我的发票抬头"
+      - id: "me_services"
+        description: "服务"
+        matcher: { text: "服务" }
+        included_features:
+          - "收付款"
+          - "钱包"
+          - "信用卡还款"
+          - "理财通"
+          - "保险服务"
+          - "手机充值"
+          - "生活缴费"
+          - "Q币充值"
+          - "城市服务"
+          - "腾讯公益"
+          - "医疗健康"
+      - id: "me_favorites"
+        description: "收藏"
+        matcher: { text: "收藏" }
+      - id: "me_moments_album"
+        description: "朋友圈"
+        matcher: { text: "朋友圈" }
+      - id: "me_channels_profile"
+        description: "视频号"
+        matcher: { text: "视频号" } # 注意这里可能会有红点干扰OCR，但Text通常稳定
+      - id: "me_official_accounts"
+        description: "公众号"
+        matcher: { text: "公众号" } # 截图中新增
+      - id: "me_cards"
+        description: "订单与卡包" # 截图显示"订单与卡包"
+        matcher: { text: "订单与卡包" }
+      - id: "me_sticker"
+        description: "表情"
+        matcher: { text: "表情" }
+      - id: "me_settings"
+        description: "设置"
+        matcher: { text: "设置" }
+        included_features:
+          - "个人信息"
+          - "账号安全"
+          - "个人信息与权限"
+          - "通知"
+          - "界面与显示"
+          - "朋友权限"
+          - "存储空间"
+          - "聊天"
+          - "音视频通话"
+          - "聊天记录管理"
+          - "帮助与反馈"
+          - "关于微信"
+          - "切换账号"
+          - "退出登录"
+
+instruction: |
+  **当前阶段：微信 (WeChat) 专用模式**
+
+  **操作指南**：
+  1. **文本输入**：
+     - **强制前置动作**：在输入任何文字前，**必须先点击输入框**。
+     - **键盘检测**：只有在屏幕截图中明确看到软键盘弹出后，才允许执行 Type 指令。
+     - 如果点击输入框后键盘未弹出，请尝试再次点击或等待。
+     - 输入完成后，记得点击“发送”按钮。
+
+  2. **查找联系人**：
+     - 点击主界面顶部的“搜索”图标。
+     - **强制要求**：搜索联系人时**必须**使用名称的汉语拼音首字母缩写（如“王正”输入“wz”、“文件传输助手”输入“wjcszs”），**禁止**直接输入中文姓名，以彻底规避语音识别的同音字偏差。
+     - 点击搜索结果进入聊天界面。
+
+  3. **朋友圈与公众号**：
+     - 浏览内容请使用 Scroll。
+     - 遇到感兴趣的内容可以点击进入详情。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot

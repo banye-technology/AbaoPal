@@ -1,0 +1,249 @@
+metadata:
+  id: "app.12306"
+  type: "APP"
+  name: "铁路12306"
+  version: "1.0.0"
+  author: "auto-agent"
+  description: "铁路12306专用技能，针对车票查询、订单管理及个人中心优化"
+  target_apps:
+    - "com.MobileTicket"
+
+# 用户路径树：模拟用户操作习惯
+user_path_tree:
+  # 顶部通用功能区 (Global Actions)
+  - id: "global_actions"
+    description: "顶部通用功能区"
+    matcher: { id: "action_bar_root" } # 假设ID，实际依赖Text匹配
+    children:
+      - id: "top_bar_features"
+        description: "顶部功能按钮"
+        matcher: { id: "top_bar" }
+        included_features:
+          - "扫描"
+          - "消息"
+          - "搜索"
+
+  # 底部导航栏 - 首页 Tab
+  - id: "tab_home"
+    description: "底部首页Tab"
+    matcher: { text: "首页" }
+    children:
+      # 顶部车票查询卡片
+      - id: "ticket_query_card"
+        description: "车票查询面板"
+        matcher: { text: "查询车票" }
+        included_features:
+          - "查询车票"
+          - "选择出发地"
+          - "选择目的地"
+          - "选择日期"
+          - "学生票"
+          - "高铁/动车"
+
+      # 顶部业务切换 (火车/飞机/汽车)
+      - id: "home_biz_nav"
+        description: "业务类型切换"
+        matcher: { text: "火车票" }
+        included_features:
+          - "火车票"
+          - "飞机票"
+          - "汽车票"
+
+      # 核心功能网格
+      - id: "home_grid_menu"
+        description: "首页核心功能网格"
+        matcher: { id: "grid_view" }
+        included_features:
+          - "车站大屏"
+          - "时刻表"
+          - "餐饮·特产"
+          - "铁路e卡通"
+          - "约车"
+          - "酒店住宿"
+          - "空铁联运"
+          - "温馨服务"
+          - "计次·定期票"
+          - "电子发票"
+          - "出行保险"
+
+  # 车票列表页 (独立页面)
+  - id: "page_ticket_list"
+    description: "车票查询结果列表页"
+    matcher: { id: "ticket_list_root" }
+    children:
+      - id: "date_selection_bar"
+        description: "顶部日期选择"
+        matcher: { id: "date_bar" }
+        included_features:
+          - "前一天"
+          - "后一天"
+          - "日历"
+          - "今天"
+
+      - id: "filter_sort_bar"
+        description: "筛选与排序"
+        matcher: { text: "筛选" }
+        included_features:
+          - "只看高铁/动车"
+          - "只看普通车"
+          - "只看有票"
+          - "耗时最短"
+          - "发时最早"
+          - "价格最低"
+          - "筛选"
+
+      - id: "train_list_item"
+        description: "车次列表项"
+        matcher: { id: "train_item" }
+        included_features:
+          - "点击车次展开"
+          - "预订硬座"
+          - "预订硬卧"
+          - "预订软卧"
+          - "预订二等座"
+          - "预订一等座"
+          - "候补"
+
+  # 底部导航栏 - 出行服务 Tab
+  - id: "tab_travel_service"
+    description: "底部出行服务Tab"
+    matcher: { text: "出行服务" }
+    children:
+      - id: "travel_service_content"
+        description: "出行服务内容"
+        matcher: { id: "content_container" }
+        included_features:
+          - "行程管理"
+
+  # 底部导航栏 - 订单 Tab
+  - id: "tab_orders"
+    description: "底部订单Tab"
+    matcher: { text: "订单" }
+    children:
+      # 顶部订单状态栏
+      - id: "order_status_nav"
+        description: "订单状态快捷入口"
+        matcher: { text: "待支付" }
+        included_features:
+          - "待支付"
+          - "已支付"
+          - "候补订单"
+          - "本人车票"
+          - "电子发票"
+
+      # 订单类型列表
+      - id: "order_type_list"
+        description: "各类订单列表"
+        matcher: { text: "火车票订单" }
+        included_features:
+          - "火车票订单"
+          - "餐饮·特产订单"
+          - "保险订单"
+          - "酒店订单"
+          - "空铁联运订单"
+          - "计次·定期票订单"
+          - "租车·约车订单"
+
+  # 底部导航栏 - 铁路会员 Tab
+  - id: "tab_member"
+    description: "底部铁路会员Tab"
+    matcher: { text: "铁路会员" }
+    children:
+      - id: "member_content"
+        description: "会员中心"
+        matcher: { text: "会员积分" }
+        included_features:
+          - "会员积分"
+          - "会员权益"
+
+  # 底部导航栏 - 我的 Tab
+  - id: "tab_me"
+    description: "底部我的Tab"
+    matcher: { text: "我的" }
+    children:
+      # 用户信息头部
+      - id: "user_profile_area"
+        description: "个人信息头部区域"
+        matcher: { desc: "头像" }
+        included_features:
+          - "个人信息"
+          - "手机核验"
+          - "实名认证"
+          - "设置"
+
+      # 快捷入口卡片
+      - id: "quick_access_card"
+        description: "个人中心快捷入口"
+        matcher: { text: "我的订单" }
+        included_features:
+          - "乘车人"
+          - "我的订单"
+          - "优惠券"
+
+      # 出行向导
+      - id: "travel_guide_grid"
+        description: "出行向导"
+        matcher: { text: "出行向导" }
+        included_features:
+          - "车站大屏"
+          - "时刻表"
+          - "起售时间"
+          - "正晚点查询"
+          - "票价查询"
+          - "换乘时间"
+          - "代售点查询"
+          - "更多"
+
+      # 常用功能
+      - id: "common_functions_grid"
+        description: "常用功能"
+        matcher: { text: "常用功能" }
+        included_features:
+          - "人证核验"
+          - "指纹登录"
+          - "修改密码"
+          - "修改手机号"
+          - "通知设置"
+          - "敬老版"
+          - "快捷退票"
+          - "学生资质核验"
+
+instruction: |
+  **当前阶段：铁路12306 专用模式**
+
+  **操作指南**：
+  1. **车票查询流程**：
+     - 必须先点击“首页”Tab。
+     - 输入出发地和目的地时，点击文字区域进入选择页面，输入城市名后选择正确结果。
+     - 必须确认“出发日期”正确。
+     - 点击“查询车票”按钮开始搜索。
+
+  2. **车票筛选与预订流程**：
+     - **日期选择**：如需切换日期，请使用顶部的“日历”或“前一天/后一天”按钮。
+     - **筛选排序**：使用底部工具栏进行操作，如“价格最低”、“耗时最短”或“筛选”（可按车次类型/发站等筛选）。
+     - **查找车次**：使用 Scroll 上下滚动列表查找合适的车次。
+     - **预订操作**：
+       - **第一步**：点击目标车次（例如点击车次号或时间区域），这将**展开**该车次的详细座位列表。
+       - **第二步**：在展开的列表中，找到对应座位类型（如硬座、硬卧、二等座等），点击其右侧的“预订”按钮。
+       - **注意**：如果显示“候补”，说明暂无余票，需点击“候补”下单。
+
+  3. **乘车人管理**：
+     - 建议通过“我的” -> “乘车人”进行管理。
+
+  4. **订单查看**：
+     - 通过“订单”Tab查看所有订单。
+     - “本人车票”可快速查看即将出行的车票信息。
+
+  5. **注意事项**：
+     - 如遇到验证码或人脸识别，请提示用户手动操作。
+     - 购票时注意区分“学生票”和“普通票”。
+
+allowed_tools:
+  - Tap
+  - Scroll
+  - Type
+  - Back
+  - Home
+  - Search
+  - Wait
+  - Screenshot
