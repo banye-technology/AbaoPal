@@ -71,16 +71,7 @@
 
 ### 示例视频
 
-<p align="center">
-  <a href="docs/videos/abaopal-demo-2x.mp4">
-    <img src="docs/images/home-screen.jpg" width="320" alt="观看 AbaoPal 示例视频">
-  </a>
-</p>
-
-<p align="center">
-  <a href="docs/videos/abaopal-demo-2x.mp4"><strong>▶ 点击观看演示</strong></a><br>
-
-</p>
+https://github.com/user-attachments/assets/13aa9618-212f-446f-9b1f-70a0b43fde3b
 
 <a id="highlights"></a>
 
