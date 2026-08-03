@@ -150,7 +150,7 @@ Copy-Item local.properties.example local.properties
 cp local.properties.example local.properties
 ```
 
-编辑 `local.properties`，把 `sdk.dir` 改为本机 Android SDK 的绝对路径。不要把该文件、真实 API Key 或签名口令提交到 Git。
+编辑 `local.properties`，把 `sdk.dir` 改为本机 Android SDK 的绝对路径。
 
 ### 3. 编译与检查
 
