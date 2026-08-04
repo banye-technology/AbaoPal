@@ -35,6 +35,12 @@
 
 他并非一段只能照本宣科的固定脚本：自然语言、实时界面、可复用 Skills、操作录制与语音入口，被放进了同一个执行循环里。你可以从一个简单任务开始，也可以逐步把自己的操作经验沉淀成可编辑、可回放的手机能力。
 
+## 💬 加入交流群
+
+<p align="center">
+  加入 QQ 交流群：<strong>1040205433</strong><br>
+  <img width="321" height="570" alt="QQgroup" src="https://github.com/user-attachments/assets/77416f1c-9196-4718-bfcb-13f508a960b2" />
+</p>
 
 <a id="demo"></a>
 
